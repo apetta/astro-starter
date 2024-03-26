@@ -1,0 +1,43 @@
+{
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "parser": "astro-eslint-parser",
+      "excludedFiles": ["node_modules/**"],
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".astro"]
+      },
+      "rules": {
+        // Add or override Astro-specific rules here
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"], // Targets TypeScript and TSX files
+      "rules": {
+        // Add or override TypeScript/React-specific rules here
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error"
+      },
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:react-hooks/recommended"
+      ],
+      "parser": "@typescript-eslint/parser", // Specifies the ESLint parser for TypeScript
+      "parserOptions": {
+        "ecmaFeatures": {
+          "jsx": true // Allows for the parsing of JSX
+        },
+        "ecmaVersion": 2020, // Allows for the parsing of modern ECMAScript features
+        "sourceType": "module" // Allows for the use of imports
+      },
+      "settings": {
+        "react": {
+          "version": "detect" // Automatically detects the React version
+        }
+      }
+    }
+  ]
+}
